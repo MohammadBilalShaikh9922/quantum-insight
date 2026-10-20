@@ -89,7 +89,7 @@ export default function LoginPage() {
           <div className="relative z-10 flex items-center justify-between">
             <Link href="/" className="inline-block">
               <Image
-                src="/quantuminsight-logo.png"
+                src="/logo.svg"
                 alt="QuantumInsight"
                 width={210}
                 height={100}
