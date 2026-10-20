@@ -47,7 +47,7 @@ export default function Home() {
       <header className="relative flex items-center justify-between border-b border-white/10 px-6 py-5 sm:px-10 lg:px-12">
         <Link href="/" className="flex items-center">
           <Image
-            src="/quantuminsight-logo.png"
+            src="/logo.svg"
             alt="QuantumInsight logo"
             width={180}
             height={85}
