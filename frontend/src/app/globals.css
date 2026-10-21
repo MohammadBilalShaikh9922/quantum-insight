@@ -38,8 +38,8 @@ html {
 
 body {
   margin: 0;
-  background: #050816;
-  color: #edf4ff;
+  background: var(--page-bg);
+  color: var(--text-color);
   font-family:
     Inter,
     ui-sans-serif,
