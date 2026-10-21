@@ -882,3 +882,126 @@ textarea:focus {
     font-size: 20px;
   }
 }
+
+
+/* =========================================
+   QuantumInsight Light Theme
+   ========================================= */
+
+html[data-theme="light"] body {
+  background: var(--page-bg);
+  color: var(--text-color);
+}
+
+html[data-theme="light"] .app-bg {
+  background:
+    radial-gradient(
+      ellipse at 10% 0%,
+      rgba(59, 130, 246, 0.09),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f8fafc 0%, #eef3f9 100%);
+  color: var(--text-color);
+}
+
+html[data-theme="light"] .sidebar,
+html[data-theme="light"] .topbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+html[data-theme="light"] .side-label,
+html[data-theme="light"] .text-slate-400,
+html[data-theme="light"] .text-slate-500 {
+  color: var(--muted-text);
+}
+
+html[data-theme="light"] .side-link {
+  color: #526078;
+}
+
+html[data-theme="light"] .side-link:hover,
+html[data-theme="light"] .side-link.active {
+  background: #e8efff;
+  color: #1d4ed8;
+}
+
+html[data-theme="light"] .top-action,
+html[data-theme="light"] .icon-btn {
+  background: #ffffff;
+  color: #26354d;
+  border-color: var(--border-color);
+}
+
+html[data-theme="light"] .top-action:hover,
+html[data-theme="light"] .icon-btn:hover {
+  background: #edf3ff;
+}
+
+html[data-theme="light"] .card,
+html[data-theme="light"] .metric,
+html[data-theme="light"] .health-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.045);
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select {
+  background: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: #8792a5;
+}
+
+html[data-theme="light"] .health-card h1,
+html[data-theme="light"] .health-card h2,
+html[data-theme="light"] .health-card h3,
+html[data-theme="light"] .health-card p,
+html[data-theme="light"] .health-card span {
+  color: inherit;
+}
+
+html[data-theme="light"] .health-card .text-cyan-300,
+html[data-theme="light"] .text-cyan-300 {
+  color: #087eaa;
+}
+
+html[data-theme="light"] .text-white,
+html[data-theme="light"] .text-slate-100,
+html[data-theme="light"] .text-slate-200,
+html[data-theme="light"] .text-slate-300 {
+  color: #243148;
+}
+
+html[data-theme="light"] .border-white\/5,
+html[data-theme="light"] .border-white\/10 {
+  border-color: var(--border-color);
+}
+
+html[data-theme="light"] .bg-white\/\[0\.02\],
+html[data-theme="light"] .bg-white\/\[0\.03\],
+html[data-theme="light"] .bg-slate-950\/95 {
+  background-color: #ffffff;
+}
+
+html[data-theme="light"] .recharts-text,
+html[data-theme="light"] .recharts-cartesian-axis-tick-value {
+  fill: #526078;
+}
+
+html[data-theme="light"] .recharts-cartesian-grid line {
+  stroke: #dce3ed;
+}
+
+html[data-theme="light"] .recharts-tooltip-wrapper {
+  color: #172033;
+}
+
