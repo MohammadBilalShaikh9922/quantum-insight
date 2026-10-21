@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   color-scheme: dark;
 
@@ -26,6 +27,7 @@ html[data-theme="light"] {
   --input-bg: #ffffff;
 }
 
+
 * {
   box-sizing: border-box;
 }
@@ -36,8 +38,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--page-bg);
-  color: var(--text-color);
+  background: #050816;
+  color: #edf4ff;
   font-family:
     Inter,
     ui-sans-serif,
@@ -94,3 +96,789 @@ button:disabled {
   opacity: 0.22;
   background-image:
     linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+  position: fixed;
+  z-index: 50;
+  inset: 0 auto 0 0;
+  width: 248px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(4, 9, 25, 0.92);
+  border-right: 1px solid rgba(148, 163, 184, 0.1);
+
+  backdrop-filter: blur(22px);
+
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.sidebar-open {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* ================================
+   TOP BAR
+================================ */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  background: rgba(5, 8, 22, 0.72);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+/* ================================
+   SIDEBAR NAVIGATION
+================================ */
+
+.side-label {
+  margin: 10px 10px 8px;
+
+  color: #66748d;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 11px 12px;
+  margin: 3px 0;
+
+  border-radius: 12px;
+
+  color: #8491a8;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.side-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.side-link.active {
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(31, 182, 255, 0.16),
+      rgba(118, 55, 255, 0.14)
+    );
+
+  box-shadow: inset 2px 0 0 #25c7ff;
+}
+
+/* ================================
+   UPGRADE CARD
+================================ */
+
+.upgrade-card {
+  padding: 14px;
+
+  border: 1px solid rgba(65, 218, 255, 0.14);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 91, 145, 0.16),
+      rgba(88, 38, 170, 0.13)
+    );
+}
+
+/* ================================
+   TOP ACTIONS
+================================ */
+
+.top-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+
+  color: #dce8fb;
+  background: rgba(255, 255, 255, 0.035);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ================================
+   AVATAR
+================================ */
+
+.avatar {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  background: linear-gradient(
+    135deg,
+    #18bff8,
+    #7c3aed
+  );
+
+  box-shadow: 0 0 24px rgba(64, 139, 255, 0.2);
+}
+
+/* ================================
+   ICON BUTTON
+================================ */
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  color: #c6d2e8;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* ================================
+   TEXT EFFECTS
+================================ */
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #22d3ee,
+    #818cf8,
+    #d946ef
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      rgba(86, 145, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(86, 145, 255, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+}
+
+.glow-orb {
+  position: absolute;
+
+  border-radius: 999px;
+
+  filter: blur(70px);
+  opacity: 0.38;
+
+  pointer-events: none;
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+  border: 1px solid rgba(148, 163, 184, 0.11);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.78),
+      rgba(6, 12, 28, 0.78)
+    );
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+}
+
+.card-hover {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(56, 189, 248, 0.23);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.26),
+    0 0 35px rgba(14, 165, 233, 0.06);
+}
+
+/* ================================
+   METRICS
+================================ */
+
+.metric {
+  padding: 17px;
+
+  border: 1px solid rgba(148, 163, 184, 0.09);
+  border-radius: 16px;
+
+  background: rgba(9, 17, 36, 0.78);
+}
+
+.metric-value {
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+/* ================================
+   BADGES
+================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 5px 9px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 16px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.btn-primary {
+  color: #03111c;
+
+  background:
+    linear-gradient(
+      100deg,
+      #22d3ee,
+      #4f8cff 52%,
+      #a855f7
+    );
+
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.12);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.btn-secondary {
+  color: #d9e4f8;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ================================
+   FORM ELEMENTS
+================================ */
+
+input,
+textarea {
+  width: 100%;
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 12px;
+
+  background: rgba(2, 6, 23, 0.72);
+  color: #f1f5ff;
+
+  outline: none;
+}
+
+input {
+  padding: 12px 13px;
+}
+
+textarea {
+  padding: 15px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(34, 211, 238, 0.55);
+
+  box-shadow:
+    0 0 0 3px rgba(34, 211, 238, 0.07);
+}
+
+/* ================================
+   CODE EDITOR
+================================ */
+
+.code-editor {
+  min-height: 390px;
+
+  resize: vertical;
+
+  font-family:
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  line-height: 1.65;
+  font-size: 12px;
+}
+
+/* ================================
+   SECTION KICKER
+================================ */
+
+.section-kicker {
+  color: #4ddcff;
+
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ================================
+   AUTHENTICATION
+================================ */
+
+.auth-shell {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  padding: 28px 18px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(76, 29, 149, 0.28),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 0% 60%,
+      rgba(14, 165, 233, 0.1),
+      transparent 30%
+    ),
+    #040713;
+}
+
+.auth-panel {
+  width: min(1080px, 100%);
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 28px;
+
+  background: rgba(7, 13, 31, 0.86);
+
+  box-shadow: 0 35px 120px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(20px);
+}
+
+/* ================================
+   AUTH ART
+================================ */
+
+.auth-art {
+  position: relative;
+  overflow: hidden;
+
+  padding: 48px;
+
+  background:
+    radial-gradient(
+      circle at 35% 20%,
+      rgba(31, 194, 255, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 75% 80%,
+      rgba(168, 85, 247, 0.18),
+      transparent 28%
+    ),
+    linear-gradient(
+      150deg,
+      #08152e,
+      #07081b
+    );
+}
+
+/* ================================
+   AUTH FORM
+================================ */
+
+.auth-form {
+  padding: 48px;
+
+  background: rgba(5, 10, 24, 0.72);
+}
+
+/* ================================
+   QUANTUM RING
+================================ */
+
+.quantum-ring {
+  position: relative;
+
+  width: 250px;
+  height: 250px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 38px auto;
+
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 70px rgba(34, 211, 238, 0.12),
+    inset 0 0 70px rgba(129, 140, 248, 0.06);
+}
+
+.quantum-ring::before,
+.quantum-ring::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(129, 140, 248, 0.24);
+  border-radius: 50%;
+
+  transform: rotate(60deg);
+}
+
+.quantum-ring::before {
+  width: 150px;
+  height: 280px;
+}
+
+.quantum-ring::after {
+  width: 280px;
+  height: 150px;
+
+  transform: rotate(-35deg);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 820px) {
+  .auth-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-art {
+    display: none;
+  }
+
+  .auth-form {
+    padding: 34px 24px;
+  }
+}
+
+
+/* =========================================
+   ANALYZER - HEALTH COMPONENT VISIBILITY
+========================================= */
+
+.health-card {
+  position: relative;
+  overflow: hidden;
+
+  color: #edf4ff;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(34, 211, 238, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.92),
+      rgba(6, 12, 28, 0.95)
+    );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+/* Health component headings */
+.health-card h1,
+.health-card h2,
+.health-card h3,
+.health-card h4 {
+  color: #f1f5ff;
+}
+
+/* Health component normal text */
+.health-card p,
+.health-card span,
+.health-card label {
+  color: #aebbd0;
+}
+
+/* Health metric values */
+.health-card .metric-value,
+.health-card .health-value,
+.health-card .score,
+.health-card .health-score {
+  color: #f8fbff !important;
+  font-weight: 800;
+}
+
+/* Health metric labels */
+.health-card .metric-label,
+.health-card .health-label {
+  color: #94a3b8 !important;
+}
+
+/* =========================================
+   HEALTH GRAPH
+========================================= */
+
+.health-card svg {
+  overflow: visible;
+}
+
+/* SVG text / axis labels */
+.health-card svg text {
+  fill: #94a3b8 !important;
+  color: #94a3b8 !important;
+}
+
+/* Graph grid */
+.health-card svg line {
+  stroke: rgba(148, 163, 184, 0.14);
+}
+
+/* Make graph paths visible */
+.health-card svg path {
+  visibility: visible;
+}
+
+/* Graph points */
+.health-card svg circle {
+  visibility: visible;
+}
+
+/* =========================================
+   RECHARTS SUPPORT
+========================================= */
+
+.health-card .recharts-wrapper {
+  color: #cbd5e1;
+}
+
+.health-card .recharts-cartesian-axis-tick-value {
+  fill: #94a3b8 !important;
+}
+
+.health-card .recharts-cartesian-axis-line {
+  stroke: rgba(148, 163, 184, 0.18) !important;
+}
+
+.health-card .recharts-cartesian-grid-horizontal line,
+.health-card .recharts-cartesian-grid-vertical line {
+  stroke: rgba(148, 163, 184, 0.12) !important;
+}
+
+.health-card .recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.health-card .recharts-default-tooltip {
+  color: #f1f5ff !important;
+
+  background: rgba(7, 13, 31, 0.96) !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  border-radius: 10px !important;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.health-card .recharts-tooltip-label {
+  color: #f1f5ff !important;
+}
+
+.health-card .recharts-tooltip-item {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================
+   HEALTH SCORE / STATUS
+========================================= */
+
+.health-score {
+  color: #f8fbff !important;
+}
+
+.health-status {
+  color: #67e8f9 !important;
+}
+
+.health-description {
+  color: #94a3b8 !important;
+}
+
+/* =========================================
+   HEALTH PROGRESS BARS
+========================================= */
+
+.health-card progress {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.health-card .progress-track {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.health-card .progress-bar {
+  background: linear-gradient(
+    90deg,
+    #22d3ee,
+    #4f8cff,
+    #a855f7
+  ) !important;
+}
+
+/* =========================================
+   HEALTH BADGES
+========================================= */
+
+.health-card .badge {
+  color: #dce8fb;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+/* =========================================
+   HEALTH ICONS
+========================================= */
+
+.health-card svg:not(.recharts-surface) {
+  color: #67e8f9;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .health-card {
+    padding: 16px;
+  }
+
+  .health-card svg text {
+    font-size: 10px;
+  }
+
+  .health-card .metric-value,
+  .health-card .health-value,
+  .health-card .score,
+  .health-card .health-score {
+    font-size: 20px;
+  }
+}
