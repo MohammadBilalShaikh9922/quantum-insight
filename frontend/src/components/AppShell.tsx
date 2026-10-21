@@ -26,7 +26,28 @@ export default function AppShell({
 
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [themeReady, setThemeReady] = useState(false);
 
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("qi_theme");
+  
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setTheme(savedTheme);
+    }
+  
+    setThemeReady(true);
+  }, []);
+  
+  useEffect(() => {
+    if (!themeReady) return;
+  
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  
+    window.localStorage.setItem("qi_theme", theme);
+  }, [theme, themeReady]);
+  
   useEffect(() => {
   async function checkAdmin() {
     try {
@@ -290,6 +311,24 @@ export default function AppShell({
               className="top-action hidden sm:flex"
             >
               <Icon name="zap" size={15} />
+              <button
+                type="button"
+                onClick={() =>
+                  setTheme((current) =>
+                    current === "dark" ? "light" : "dark"
+                  )
+                }
+                className="top-action"
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                title="Change color theme"
+              >
+                <span aria-hidden="true">
+                  {theme === "dark" ? "☀" : "☾"}
+                </span>
+                <span className="hidden sm:inline">
+                  {theme === "dark" ? "Light mode" : "Dark mode"}
+                </span>
+              </button>
               New analysis
             </Link>
 
