@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
@@ -16,6 +15,7 @@ class SimulationRequest(BaseModel):
         max_length=50000,
         description="Qiskit circuit source code"
     )
+
     shots: int = Field(
         default=1024,
         ge=1,
@@ -30,10 +30,8 @@ def simulate_quantum_circuit(
     user=Depends(current_user)
 ):
     try:
-        # Parse the submitted Qiskit source code
         parsed, parser_mode = parse_qiskit_code(request.code)
 
-        # Run actual quantum simulation
         result = simulate_circuit(
             parsed,
             shots=request.shots
@@ -63,4 +61,3 @@ def simulate_quantum_circuit(
             status_code=400,
             detail=str(exc)
         )
-routes_simulation.pyroutes_simulation.pyroutes_simulation.pyroutes_simulation.pyroutes_simulation.pyroutes_simulation.pyroutes_simulation.py
